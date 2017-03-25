@@ -35,6 +35,7 @@ urlpatterns = [
     url(r'^contact/$', 
         TemplateView.as_view(template_name='contact.html'),
         name='contact'),
+    url(r'^create_thing/$', views.create_thing, name='create_thing'),
     url(r'^browse/$', RedirectView.as_view(pattern_name='browse', permanent=True)),
     url(r'^browse/name/$',
         views.browse_by_name, name='browse'),
