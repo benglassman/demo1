@@ -4,7 +4,9 @@
 Homepage - {{ block.super }}
 {% endblock title %}
 {% block content %}
-    <a href ="{% url 'create_thing' %}">Create Thing</a>
+    {% if user.is_authenticated %}
+        <a href ="{% url 'create_thing' %}">Create Thing</a>
+    {% endif %}
     {% for thing in things %}
         <h4>
             <a href="{% url 'thing_detail' slug=thing.slug %}">
