@@ -4,12 +4,13 @@
 Homepage - {{ block.super }}
 {% endblock title %}
 {% block content %}
+    <a href ="{% url 'create_thing' %}">Create Thing</a>
     {% for thing in things %}
-        <h2>
+        <h4>
             <a href="{% url 'thing_detail' slug=thing.slug %}">
                 {{ thing.name }} 
             </a>
-        </h2>
+        </h4>
         <p>{{ thing.description }}</p>
     {% endfor %}
 {% endblock content %}

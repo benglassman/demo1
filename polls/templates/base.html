@@ -7,25 +7,34 @@
                 Fooling Around
             {% endblock title %}
         </title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
         <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+        <link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
         {% block header %}{% endblock header %}
     </head>
     <header>
-            <h1>Hello Web App</h1>
-            <nav>
-                <ul>
-                    <li>
-                        <a href="{% url 'home' %}">Home</a>
+        {% with url_name=request.resolver_match.url_name %}
+            <nav class="navbar navbar-default">
+                <div class= container-fluid>
+                <div class=navbar-header>
+                <ul class="nav navbar-nav">
+                    <li class=" {% if url_name == 'home' %}active{% endif %} ">
+                        <a class="font-family: 'Dancing Script', cursive;" href="{% url 'home' %}">Home</a>
                     </li>
-                    <li>
+                    <li class=" {% if url_name == 'about' %}active{% endif %}">
                         <a href="{% url 'about' %}">About</a>
                     </li>
-                    <li>
+                    <li class=" {% if url_name == 'contact' %}active{% endif %}">
                         <a href="{% url 'contact' %}">Contact</a>
                     </li>
-                    <li>
+                    <li class=" {% if url_name == 'Browse' %}active{% endif %}">
                         <a href="{% url 'browse' %}">Browse</a>
                     </li>
+                </ul>
+                </div>
+                {% endwith %}
+                <ul class="nav navbar-nav navbar-right">
                     {% if user.is_authenticated %}
                         <li>
                             <a href="{% url 'auth_logout' %}">Logout</a>
@@ -39,6 +48,7 @@
                         </li>
                     {% endif %}
                 </ul>
+                </div>
             </nav>
         </header>
         <body>

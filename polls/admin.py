@@ -3,7 +3,7 @@ from polls.models import Thing
 
 class ThingAdmin(admin.ModelAdmin):
     model = Thing
-    list_display = ('name', 'description',)
+    list_display = ('name', 'description','user',)
     prepopulated_fields = {'slug': ('name',)}
 
 # Register your models here.
