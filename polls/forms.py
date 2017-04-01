@@ -5,4 +5,4 @@ from polls.models import Thing
 class ThingForm(ModelForm):
     class Meta:
         model = Thing
-        fields = ('name', 'description',)
+        fields = ('name', 'description', 'ingredients')

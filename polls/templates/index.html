@@ -5,7 +5,7 @@ Homepage - {{ block.super }}
 {% endblock title %}
 {% block content %}
     {% if user.is_authenticated %}
-        <a href ="{% url 'create_thing' %}">Create Thing</a>
+        <a href ="{% url 'create_thing' %}">Add Meal</a>
     {% endif %}
     {% for thing in things %}
         <h4>
