@@ -13,12 +13,11 @@
         <div class="col-md-4">
             <h1 class="text-center">Create a Thing</h1>
             <br>
+            {% load crispy_forms_tags %}
             <form role="form" action="" method="post">
                 {% csrf_token %}
-                {{ form.as_p }}
-                <div class="text-center">
-                    <button type="submit" class="save btn btn-default">Submit</button>
-                </div>
+                {{ form|crispy }}
+                <button type="submit" class="save btn btn-default">Submit</button>
             </form>
         </div>
     </div>
